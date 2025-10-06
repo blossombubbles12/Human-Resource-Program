@@ -1,14 +1,13 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Page Not Found - GIHCR Education Institute",
-  description: "The page you're looking for doesn't exist. Return to GIHCR Education Institute.",
-};
+import { useEffect } from "react";
 
 export default function NotFound() {
+  useEffect(() => {
+    document.title = "Page Not Found - GIHCR Education Institute";
+  }, []);
+
   return (
     <ThemeProvider
       enableSystem={false}

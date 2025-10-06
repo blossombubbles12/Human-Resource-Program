@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 import ScheduleConsultation from "@/components/Support/ScheduleConsultation";
 
 export const metadata: Metadata = {
@@ -7,10 +8,20 @@ export const metadata: Metadata = {
   keywords: "consultation, education advisor, HR programs, career guidance, schedule meeting",
 };
 
+function ConsultationLoading() {
+  return (
+    <div className="min-h-screen flex items-center justify-center">
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+    </div>
+  );
+}
+
 export default function ScheduleConsultationPage() {
   return (
     <>
-      <ScheduleConsultation />
+      <Suspense fallback={<ConsultationLoading />}>
+        <ScheduleConsultation />
+      </Suspense>
     </>
   );
 }
