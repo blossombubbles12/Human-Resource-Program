@@ -10,7 +10,7 @@
     "lint:check": "next lint",
     "type-check": "tsc --noEmit",
     "build:analyze": "ANALYZE=true pnpm build",
-    "postinstall": "next telemetry disable"
+    "preinstall": "npx next telemetry disable"
   },
   "dependencies": {
     "framer-motion": "^12.0.6",

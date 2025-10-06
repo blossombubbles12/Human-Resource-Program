@@ -2,7 +2,6 @@
 
 const nextConfig = {
   reactStrictMode: false, // Disabled for testing
-  swcMinify: true,
   experimental: {
     optimizePackageImports: ['framer-motion'],
   },
@@ -26,7 +25,6 @@ const nextConfig = {
     ],
     formats: ['image/webp', 'image/avif'],
   },
-  // Remove problematic optimizations that cause build issues
   compress: true,
   poweredByHeader: false,
   trailingSlash: false,
