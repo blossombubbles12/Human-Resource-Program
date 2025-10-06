@@ -184,7 +184,7 @@ const About = () => {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="#"
+                  href="/programs"
                   className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-primary to-blue-600 px-8 py-4 text-white font-medium hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105"
                 >
                   <span className="duration-300 group-hover:pr-2">
@@ -201,7 +201,7 @@ const About = () => {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="/support/schedule-consultation"
                   className="group inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-primary bg-transparent px-8 py-4 text-primary font-medium hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1"
                 >
                   <span className="duration-300 group-hover:pr-2">

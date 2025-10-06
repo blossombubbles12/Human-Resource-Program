@@ -206,7 +206,7 @@ const Integration = () => {
             className="text-center"
           >
             <a
-              href="#"
+              href="/enrollment"
               className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-primary to-blue-600 px-8 py-4 text-white font-semibold hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:scale-105"
             >
               <span>Experience Our Platform</span>

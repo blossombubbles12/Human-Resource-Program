@@ -52,7 +52,7 @@ const FeaturesTabItem = ({ featureTab }: { featureTab: FeatureTab }) => {
           {/* Call to Action */}
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="#"
+              href="/programs"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-blue-600 px-6 py-3 text-white font-medium hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               <span>Learn More</span>
@@ -61,7 +61,7 @@ const FeaturesTabItem = ({ featureTab }: { featureTab: FeatureTab }) => {
               </svg>
             </a>
             <a
-              href="#"
+              href="/contact"
               className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-primary bg-transparent px-6 py-3 text-primary font-medium hover:bg-primary hover:text-white transition-all duration-300"
             >
               <span>Download Brochure</span>
