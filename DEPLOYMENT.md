@@ -3,6 +3,7 @@
 ## Quick Vercel Deployment with PNPM
 
 ### 1. Prerequisites
+
 - GitHub account
 - Vercel account (free tier available)
 - Repository pushed to GitHub
@@ -32,6 +33,7 @@
    - Your app will be live in ~2 minutes
 
 ### 3. PNPM Configuration Applied
+
 - ✅ `.npmrc` file configured for Vercel
 - ✅ `vercel.json` updated for PNPM commands
 - ✅ Package.json scripts optimized
@@ -39,6 +41,7 @@
 - ✅ Strict peer dependencies disabled
 
 ### 4. Build Fixes Applied
+
 - ✅ Removed problematic `output: 'standalone'`
 - ✅ Disabled experimental CSS optimization
 - ✅ Simplified Next.js configuration
@@ -47,12 +50,14 @@
 - ✅ TypeScript errors ignored for testing
 
 ### 3. Custom Domain (Optional)
+
 1. In Vercel dashboard, go to Project Settings
 2. Navigate to "Domains"
 3. Add your custom domain
 4. Follow DNS configuration instructions
 
 ### 4. Performance Features Enabled
+
 - ✅ Automatic HTTPS
 - ✅ Global CDN
 - ✅ Image optimization
@@ -61,6 +66,7 @@
 - ✅ Edge functions for API routes
 
 ### 5. Build Optimizations Applied
+
 - Disabled strict mode for testing
 - Enabled SWC minification
 - Optimized images (WebP/AVIF)
@@ -69,6 +75,7 @@
 - TypeScript/ESLint errors disabled for testing
 
 ### 6. Post-Deployment Checklist
+
 - [ ] Test all pages load correctly
 - [ ] Verify contact form works
 - [ ] Check enrollment flow
@@ -77,7 +84,9 @@
 - [ ] Test FAQ search functionality
 
 ### 7. Monitoring & Analytics
+
 Consider adding:
+
 - Google Analytics
 - Vercel Analytics
 - Error tracking (Sentry)

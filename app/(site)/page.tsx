@@ -14,10 +14,8 @@ import Blog from "@/components/Blog";
 import Testimonial from "@/components/Testimonial";
 
 export const metadata: Metadata = {
-  title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
-
-  // other metadata
-  description: "This is Home for Solid Pro"
+  title: "GIHCR Education Institute - Professional HR Training & Development",
+  description: "Leading education institute specializing in human resource management training, professional development programs, and HR certifications. Advance your HR career with GIHCR."
 };
 
 export default function Home() {
