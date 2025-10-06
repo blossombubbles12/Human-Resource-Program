@@ -53,18 +53,12 @@ const menuData: Menu[] = [
   },
   {
     id: 4,
-    title: "Admissions",
-    newTab: false,
-    path: "/programs#cta",
-  },
-  {
-    id: 5,
     title: "FAQ",
     newTab: false,
     path: "/faq",
   },
   {
-    id: 6,
+    id: 5,
     title: "Contact",
     newTab: false,
     path: "/contact",
