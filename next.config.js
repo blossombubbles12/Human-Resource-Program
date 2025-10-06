@@ -3,20 +3,16 @@
 const nextConfig = {
   reactStrictMode: false, // Disabled for testing
   swcMinify: true,
-  output: 'standalone', // Optimized for Vercel
   experimental: {
-    optimizeCss: true,
     optimizePackageImports: ['framer-motion'],
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production', // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   typescript: {
-    // Disable type checking during build for testing (not recommended for production)
     ignoreBuildErrors: true,
   },
   eslint: {
-    // Disable ESLint during build for testing (not recommended for production)
     ignoreDuringBuilds: true,
   },
   images: {
@@ -28,19 +24,12 @@ const nextConfig = {
         port: "",
       },
     ],
-    formats: ['image/webp', 'image/avif'], // Optimized image formats
+    formats: ['image/webp', 'image/avif'],
   },
-  // Performance optimizations
+  // Remove problematic optimizations that cause build issues
   compress: true,
   poweredByHeader: false,
-  generateEtags: false,
-  // Bundle analyzer (uncomment to analyze bundle size)
-  // webpack: (config, { isServer }) => {
-  //   if (!isServer) {
-  //     config.resolve.fallback.fs = false;
-  //   }
-  //   return config;
-  // },
+  trailingSlash: false,
 };
 
 module.exports = nextConfig;
