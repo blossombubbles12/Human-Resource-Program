@@ -1,0 +1,13 @@
+<svg width="160" height="64" viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- WEF logo -->
+    <rect x="15" y="15" width="30" height="30" rx="4" stroke="#1e40af" stroke-width="2.5" fill="none"/>
+    <text x="22" y="35" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1e40af">WEF</text>
+    <text x="55" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2937">
+      WORLD ECONOMIC
+    </text>
+    <text x="55" y="40" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2937">
+      FORUM
+    </text>
+  </g>
+</svg>

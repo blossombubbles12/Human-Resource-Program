@@ -1,0 +1,16 @@
+<svg width="160" height="64" viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- UNESCO Text -->
+    <text x="15" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#3b82f6">
+      UNESCO
+    </text>
+    <text x="15" y="45" font-family="Arial, sans-serif" font-size="9" font-weight="600" fill="#94a3b8">
+      EDUCATION • SCIENCE • CULTURE
+    </text>
+    <!-- Globe icon -->
+    <circle cx="130" cy="25" r="18" stroke="#3b82f6" stroke-width="2.5" fill="none"/>
+    <path d="M117 25 C117 25, 123 12, 130 25 C137 12, 143 25, 143 25" stroke="#3b82f6" stroke-width="2" fill="none"/>
+    <path d="M117 25 C117 25, 123 38, 130 25 C137 38, 143 25, 143 25" stroke="#3b82f6" stroke-width="2" fill="none"/>
+    <line x1="112" y1="25" x2="148" y2="25" stroke="#3b82f6" stroke-width="2"/>
+  </g>
+</svg>

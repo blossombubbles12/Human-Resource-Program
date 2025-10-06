@@ -1,0 +1,13 @@
+<svg width="160" height="64" viewBox="0 0 160 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <!-- Shield shape -->
+    <path d="M25 10 L45 10 L50 15 L50 45 L37.5 55 L22 45 L22 15 Z" stroke="#dc2626" stroke-width="2.5" fill="none"/>
+    <text x="30" y="30" font-family="serif" font-size="14" font-weight="bold" fill="#dc2626">H</text>
+    <text x="60" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1f2937">
+      HARVARD
+    </text>
+    <text x="60" y="45" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#64748b">
+      BUSINESS SCHOOL
+    </text>
+  </g>
+</svg>
