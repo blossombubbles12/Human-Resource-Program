@@ -1,44 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
 
-const Hero = () => {
+const ModernHero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [currentWordIndex, setCurrentWordIndex] = useState(0);
-  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-  const [isTyping, setIsTyping] = useState(false);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 300], [0, -50]);
   const y2 = useTransform(scrollY, [0, 300], [0, -100]);
-
-  // Dynamic text arrays
-  const changingWords = [
-    "HR Career",
-    "Leadership",
-    "Business",
-    "Future",
-    "Potential",
-    "Success"
-  ];
-
-  const changingPhrases = [
-    "Intelligent Growth",
-    "Strategic Excellence",
-    "Professional Success", 
-    "Career Advancement",
-    "Digital Innovation",
-    "Global Impact"
-  ];
-
-  const subTexts = [
-    "Transform your human capital strategy with cutting-edge HR education and certifications. Drive innovation, boost your career, and lead organizational change with data-driven insights and AI-powered HR solutions trusted by professionals across 120+ countries.",
-    "Master the art of strategic leadership with our comprehensive programs designed for today's dynamic workplace. Gain expertise in talent management, organizational development, and digital transformation to excel in your HR career.",
-    "Join a global community of HR professionals advancing their careers through world-class education. From analytics to employee engagement, develop the skills that matter in modern human resources management.",
-    "Unlock your potential with industry-leading certifications that open doors to executive opportunities. Learn from experts, network with peers, and gain the credentials that set you apart in the competitive HR landscape.",
-    "Stay ahead of the curve with cutting-edge HR technologies and methodologies. Our programs integrate the latest in AI, data analytics, and digital tools to prepare you for the future of human resources.",
-    "Make a lasting impact on organizations worldwide with our globally recognized HR programs. Develop cross-cultural competencies and international best practices that drive business success across borders."
-  ];
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -51,27 +20,6 @@ const Hero = () => {
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
-
-  // Text rotation effects
-  useEffect(() => {
-    const wordInterval = setInterval(() => {
-      setIsTyping(true);
-      setTimeout(() => {
-        setCurrentWordIndex((prev) => (prev + 1) % changingWords.length);
-        setIsTyping(false);
-      }, 200);
-    }, 3000); // Change every 3 seconds
-
-    return () => clearInterval(wordInterval);
-  }, [changingWords.length]);
-
-  useEffect(() => {
-    const phraseInterval = setInterval(() => {
-      setCurrentPhraseIndex((prev) => (prev + 1) % changingPhrases.length);
-    }, 4000); // Change every 4 seconds
-
-    return () => clearInterval(phraseInterval);
-  }, [changingPhrases.length]);
 
   // Floating particles data
   const particles = Array.from({ length: 50 }, (_, i) => ({
@@ -127,7 +75,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 pt-20">
+    <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Animated Background */}
       <div className="absolute inset-0">
         {/* Dynamic gradient overlay */}
@@ -177,12 +125,7 @@ const Hero = () => {
         ))}
 
         {/* Grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-40" 
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-        />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="1"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-40" />
       </div>
 
       {/* Content */}
@@ -200,83 +143,53 @@ const Hero = () => {
           >
             <div className="mr-3 h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
             <span className="text-sm font-medium text-white/90">
-              🏛️ Global Institute of Human Capital and Resources
+              Trusted by 50,000+ Professionals Worldwide
             </span>
-            {/* Text rotation indicator */}
-            <div className="ml-4 flex space-x-1">
-              {changingWords.map((_, index) => (
-                <div
-                  key={index}
-                  className={`h-1 w-4 rounded-full transition-all duration-300 ${
-                    index === currentWordIndex ? 'bg-blue-400' : 'bg-white/30'
-                  }`}
-                />
-              ))}
-            </div>
           </motion.div>
 
           {/* Main Headline */}
           <motion.h1
             variants={itemVariants}
-            className="mb-8 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl xl:text-7xl text-center"
+            className="mb-6 text-5xl font-bold leading-tight text-white md:text-6xl lg:text-7xl xl:text-8xl"
           >
-            <span className="block mb-4">Empower Your</span>
-            <span className="relative inline-block">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={currentWordIndex}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                  className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent"
-                >
-                  {changingWords[currentWordIndex]}
-                </motion.span>
-              </AnimatePresence>
+            Empower Your{" "}
+            <span className="relative">
+              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-emerald-400 bg-clip-text text-transparent">
+                Business
+              </span>
               <motion.div
-                className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-400 to-emerald-400 w-full"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
+                className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-blue-400 to-emerald-400"
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
                 transition={{ duration: 1, delay: 1.5 }}
               />
             </span>
-            <span className="block mt-6">
-              with{" "}
-              <span className="relative inline-block">
-                <AnimatePresence mode="wait">
-                  <motion.span
-                    key={currentPhraseIndex}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                    className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent"
-                  >
-                    {changingPhrases[currentPhraseIndex]}
-                  </motion.span>
-                </AnimatePresence>
-              </span>
-            </span>
+            <br />
+            with{" "}
+            <motion.span
+              className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent"
+              animate={{
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              Intelligent Growth
+            </motion.span>
           </motion.h1>
 
-          {/* Dynamic Subtext */}
-          <motion.div
+          {/* Subtext */}
+          <motion.p
             variants={itemVariants}
             className="mx-auto mb-12 max-w-3xl text-lg leading-relaxed text-white/80 md:text-xl lg:text-2xl"
           >
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={currentPhraseIndex}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -30 }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              >
-                {subTexts[currentPhraseIndex]}
-              </motion.p>
-            </AnimatePresence>
-          </motion.div>
+            Transform your human capital strategy with our cutting-edge platform that connects
+            people, processes, and performance. Drive innovation, boost productivity, and scale
+            your business intelligently with data-driven insights and AI-powered solutions.
+          </motion.p>
 
           {/* CTA Buttons */}
           <motion.div
@@ -285,7 +198,7 @@ const Hero = () => {
           >
             <motion.div variants={buttonVariants} whileHover="hover">
               <Link
-                href="/programs"
+                href="/enrollment"
                 className="group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-emerald-500 px-8 py-4 font-semibold text-white shadow-2xl transition-all duration-300 hover:shadow-blue-500/25"
               >
                 <motion.div
@@ -293,7 +206,7 @@ const Hero = () => {
                   whileHover={{ scale: 1.05 }}
                 />
                 <span className="relative z-10 flex items-center gap-2">
-                  Explore Programs
+                  Get Started
                   <motion.svg
                     width="16"
                     height="16"
@@ -308,20 +221,125 @@ const Hero = () => {
             </motion.div>
 
             <motion.div variants={buttonVariants} whileHover="hover">
-              <Link
-                href="/enrollment"
-                className="group flex items-center gap-2 rounded-full border-2 border-white/30 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/20"
-              >
+              <button className="group flex items-center gap-2 rounded-full border-2 border-white/30 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/20">
                 <motion.div
                   className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 >
-                  🎓
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                    <path d="M2 0L2 12L10 6L2 0Z" />
+                  </svg>
                 </motion.div>
-                Start Enrollment
-              </Link>
+                Watch Demo
+              </button>
             </motion.div>
+          </motion.div>
+
+          {/* 3D Visual Elements */}
+          <motion.div
+            className="relative mx-auto max-w-4xl"
+            variants={itemVariants}
+            style={{ y: y1 }}
+          >
+            {/* Central Hub */}
+            <motion.div
+              className="relative mx-auto h-64 w-64 md:h-80 md:w-80"
+              animate={{
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              {/* Core circle */}
+              <motion.div
+                className="absolute inset-8 rounded-full bg-gradient-to-r from-blue-500/30 to-emerald-500/30 backdrop-blur-md border border-white/20"
+                animate={{
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <div className="flex h-full items-center justify-center">
+                  <motion.div
+                    className="text-4xl md:text-6xl"
+                    animate={{
+                      rotate: [0, -360],
+                    }}
+                    transition={{
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                  >
+                    🎯
+                  </motion.div>
+                </div>
+              </motion.div>
+
+              {/* Orbiting elements */}
+              {[0, 72, 144, 216, 288].map((angle, index) => (
+                <motion.div
+                  key={index}
+                  className="absolute h-12 w-12 rounded-full bg-gradient-to-r from-purple-500/40 to-pink-500/40 backdrop-blur-md border border-white/20 flex items-center justify-center"
+                  style={{
+                    top: "50%",
+                    left: "50%",
+                    transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-100px)`,
+                  }}
+                  animate={{
+                    rotate: [angle, angle + 360],
+                  }}
+                  transition={{
+                    duration: 15,
+                    repeat: Infinity,
+                    ease: "linear",
+                    delay: index * 0.2,
+                  }}
+                >
+                  <span className="text-xl">
+                    {["💼", "📊", "🚀", "⚡", "🎨"][index]}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Connection lines */}
+            <svg
+              className="absolute inset-0 h-full w-full"
+              style={{ transform: `translateY(${y2}px)` }}
+            >
+              {[0, 72, 144, 216, 288].map((angle, index) => (
+                <motion.line
+                  key={index}
+                  x1="50%"
+                  y1="50%"
+                  x2={50 + 25 * Math.cos((angle * Math.PI) / 180)}
+                  y2={50 + 25 * Math.sin((angle * Math.PI) / 180)}
+                  stroke="url(#gradient)"
+                  strokeWidth="2"
+                  initial={{ pathLength: 0, opacity: 0 }}
+                  animate={{ pathLength: 1, opacity: 0.6 }}
+                  transition={{
+                    duration: 2,
+                    delay: index * 0.3,
+                    ease: "easeInOut",
+                  }}
+                />
+              ))}
+              <defs>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.8" />
+                  <stop offset="100%" stopColor="#10B981" stopOpacity="0.8" />
+                </linearGradient>
+              </defs>
+            </svg>
           </motion.div>
 
           {/* Stats */}
@@ -377,4 +395,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default ModernHero;

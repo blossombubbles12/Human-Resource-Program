@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const AboutHero = () => {
   return (
-    <section className="overflow-hidden pb-20 pt-35 md:pt-40 xl:pb-25 xl:pt-46 bg-gradient-to-b from-primary/5 to-white dark:from-primary/10 dark:to-black">
+    <section className="overflow-hidden pb-20 pt-32 md:pt-36 xl:pb-25 xl:pt-44 bg-gradient-to-b from-primary/5 to-white dark:from-primary/10 dark:to-black">
       <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
         <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
           <motion.div

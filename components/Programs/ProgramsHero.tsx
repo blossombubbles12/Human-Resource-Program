@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const ProgramsHero = () => {
   return (
-    <section className="overflow-hidden pb-16 pt-32 md:pt-36 xl:pb-20 xl:pt-40 bg-gradient-to-br from-primary/5 via-blue-25 to-purple-25 dark:from-primary/10 dark:via-blacksection dark:to-blue-900/5">
+    <section className="overflow-hidden pb-16 pt-36 md:pt-40 xl:pb-20 xl:pt-48 bg-gradient-to-br from-primary/5 via-blue-25 to-purple-25 dark:from-primary/10 dark:via-blacksection dark:to-blue-900/5">
       <div className="mx-auto max-w-c-1315 px-4 md:px-8 2xl:px-0">
         <div className="flex lg:items-center lg:gap-8 xl:gap-20">
           <motion.div
