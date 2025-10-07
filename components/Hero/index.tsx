@@ -130,14 +130,14 @@ const Hero = () => {
     <section className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-800 pt-20">
       {/* Animated Background */}
       <div className="absolute inset-0">
-        {/* Dynamic gradient overlay */}
+        {/* Dynamic gradient overlay - Reduced opacity for better menu visibility */}
         <motion.div
-          className="absolute inset-0 opacity-60"
+          className="absolute inset-0 opacity-20"
           style={{
             background: `radial-gradient(circle at ${mousePosition.x}% ${mousePosition.y}%, 
-              rgba(139, 92, 246, 0.3) 0%, 
-              rgba(59, 130, 246, 0.2) 25%, 
-              rgba(16, 185, 129, 0.1) 50%, 
+              rgba(139, 92, 246, 0.2) 0%, 
+              rgba(59, 130, 246, 0.1) 25%, 
+              rgba(16, 185, 129, 0.05) 50%, 
               transparent 70%)`,
           }}
           animate={{
@@ -151,11 +151,11 @@ const Hero = () => {
           }}
         />
 
-        {/* Floating particles */}
+        {/* Floating particles - Reduced opacity for better menu visibility */}
         {particles.map((particle) => (
           <motion.div
             key={particle.id}
-            className="absolute rounded-full bg-white/20 backdrop-blur-sm"
+            className="absolute rounded-full bg-white/10 backdrop-blur-sm"
             style={{
               width: particle.size,
               height: particle.size,
@@ -165,7 +165,7 @@ const Hero = () => {
             animate={{
               y: [-20, 20, -20],
               x: [-10, 10, -10],
-              opacity: [0.2, 0.8, 0.2],
+              opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
               duration: particle.duration,
@@ -176,9 +176,9 @@ const Hero = () => {
           />
         ))}
 
-        {/* Grid pattern */}
+        {/* Grid pattern - Reduced opacity for better menu visibility */}
         <div 
-          className="absolute inset-0 opacity-40" 
+          className="absolute inset-0 opacity-10" 
           style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
@@ -186,7 +186,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 md:px-8">
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 pt-16 md:px-8 md:pt-20">
         <motion.div
           className="mx-auto max-w-6xl text-center"
           variants={containerVariants}
@@ -286,13 +286,20 @@ const Hero = () => {
             <motion.div variants={buttonVariants} whileHover="hover">
               <Link
                 href="/programs"
-                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-emerald-500 px-8 py-4 font-semibold text-white shadow-2xl transition-all duration-300 hover:shadow-blue-500/25"
+                className="group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-emerald-600 px-8 py-4 text-center font-semibold text-white shadow-2xl transition-all duration-300 hover:shadow-blue-500/25 hover:from-blue-700 hover:to-emerald-700 md:px-10 md:py-5"
               >
                 <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-emerald-500 to-blue-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  className="absolute inset-0 bg-gradient-to-r from-emerald-600 to-blue-600 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   whileHover={{ scale: 1.05 }}
                 />
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center justify-center gap-2 text-sm md:text-base">
+                  <svg
+                    className="h-5 w-5 transition-transform duration-300 group-hover:scale-110"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+                  </svg>
                   Explore Programs
                   <motion.svg
                     width="16"
@@ -310,16 +317,22 @@ const Hero = () => {
             <motion.div variants={buttonVariants} whileHover="hover">
               <Link
                 href="/enrollment"
-                className="group flex items-center gap-2 rounded-full border-2 border-white/30 bg-white/10 px-8 py-4 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/20"
+                className="group flex items-center justify-center gap-2 rounded-full border-2 border-white/30 bg-white/10 px-8 py-4 text-center font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-white/50 hover:bg-white/20 md:px-10 md:py-5"
               >
                 <motion.div
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-white/20"
+                  className="flex h-6 w-6 items-center justify-center rounded-full bg-white/20 md:h-8 md:w-8"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 >
-                  🎓
+                  <svg
+                    className="h-4 w-4 md:h-5 md:w-5"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
+                  </svg>
                 </motion.div>
-                Start Enrollment
+                <span className="text-sm md:text-base">Start Enrollment</span>
               </Link>
             </motion.div>
           </motion.div>

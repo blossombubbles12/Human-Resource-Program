@@ -31,8 +31,8 @@ const Header = () => {
     <header
       className={`fixed left-0 top-0 z-50 w-full transition-all duration-300 ${
         stickyMenu
-          ? "bg-white/95 backdrop-blur-md py-3 shadow-lg dark:bg-black/95"
-          : "bg-transparent py-4"
+          ? "bg-white/95 backdrop-blur-md py-3 shadow-lg dark:bg-gray-900/95"
+          : "bg-white/90 backdrop-blur-sm py-4 dark:bg-gray-900/90"
       }`}
     >
       <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
@@ -113,52 +113,57 @@ const Header = () => {
             </div>
           </a>
 
-          {/* <!-- Hamburger Toggle BTN --> */}
-          <button
-            aria-label="hamburger Toggler"
-            className="block xl:hidden"
-            onClick={() => setNavigationOpen(!navigationOpen)}
-          >
-            <span className="relative block h-5.5 w-5.5 cursor-pointer">
-              <span className="absolute right-0 block h-full w-full">
-                <span
-                  className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-0 duration-200 ease-in-out dark:bg-white ${
-                    !navigationOpen ? "w-full! delay-300" : "w-0"
-                  }`}
-                ></span>
-                <span
-                  className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white ${
-                    !navigationOpen ? "delay-400 w-full!" : "w-0"
-                  }`}
-                ></span>
-                <span
-                  className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white ${
-                    !navigationOpen ? "w-full! delay-500" : "w-0"
-                  }`}
-                ></span>
+          {/* Mobile Controls - Theme Toggler and Hamburger */}
+          <div className="flex items-center gap-3 xl:hidden">
+            <ThemeToggler />
+            
+            {/* <!-- Hamburger Toggle BTN --> */}
+            <button
+              aria-label="hamburger Toggler"
+              className="flex h-8 w-8 items-center justify-center"
+              onClick={() => setNavigationOpen(!navigationOpen)}
+            >
+              <span className="relative block h-5.5 w-5.5 cursor-pointer">
+                <span className="absolute right-0 block h-full w-full">
+                  <span
+                    className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-0 duration-200 ease-in-out dark:bg-white ${
+                      !navigationOpen ? "w-full! delay-300" : "w-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-150 duration-200 ease-in-out dark:bg-white ${
+                      !navigationOpen ? "delay-400 w-full!" : "w-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`relative left-0 top-0 my-1 block h-0.5 rounded-sm bg-black delay-200 duration-200 ease-in-out dark:bg-white ${
+                      !navigationOpen ? "w-full! delay-500" : "w-0"
+                    }`}
+                  ></span>
+                </span>
+                <span className="du-block absolute right-0 h-full w-full rotate-45">
+                  <span
+                    className={`absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out dark:bg-white ${
+                      !navigationOpen ? "h-0! delay-0" : "h-full"
+                    }`}
+                  ></span>
+                  <span
+                    className={`delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-black duration-200 ease-in-out dark:bg-white ${
+                      !navigationOpen ? "h-0! delay-200" : "h-0.5"
+                    }`}
+                  ></span>
+                </span>
               </span>
-              <span className="du-block absolute right-0 h-full w-full rotate-45">
-                <span
-                  className={`absolute left-2.5 top-0 block h-full w-0.5 rounded-sm bg-black delay-300 duration-200 ease-in-out dark:bg-white ${
-                    !navigationOpen ? "h-0! delay-0" : "h-full"
-                  }`}
-                ></span>
-                <span
-                  className={`delay-400 absolute left-0 top-2.5 block h-0.5 w-full rounded-sm bg-black duration-200 ease-in-out dark:bg-white ${
-                    !navigationOpen ? "h-0! delay-200" : "h-0.5"
-                  }`}
-                ></span>
-              </span>
-            </span>
-          </button>
-          {/* <!-- Hamburger Toggle BTN --> */}
+            </button>
+            {/* <!-- Hamburger Toggle BTN --> */}
+          </div>
         </div>
 
         {/* Nav Menu Start   */}
         <div
           className={`invisible h-0 w-full items-center justify-between xl:visible xl:flex xl:h-auto xl:w-full ${
             navigationOpen &&
-            "navbar visible! mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
+            "navbar visible! mt-4 h-auto max-h-[400px] rounded-md bg-white p-6 shadow-solid-5 dark:bg-blacksection xl:h-auto xl:p-0 xl:shadow-none xl:dark:bg-transparent"
           }`}
         >
           <nav>
@@ -210,7 +215,8 @@ const Header = () => {
             </ul>
           </nav>
 
-          <div className="mt-7 flex items-center gap-6 xl:mt-0">
+          {/* Desktop Actions - Only show on xl+ screens */}
+          <div className="hidden xl:flex items-center gap-6">
             <ThemeToggler />
 
             <Link
@@ -232,6 +238,33 @@ const Header = () => {
               </svg>
               Enroll Now
             </Link>
+          </div>
+
+          {/* Mobile Actions - Only show when menu is open on mobile */}
+          <div className={`xl:hidden ${navigationOpen ? 'block' : 'hidden'} mt-6 pt-6 border-t border-gray-200 dark:border-gray-700`}>
+            <div className="flex flex-col gap-4">
+              <Link
+                href="/programs"
+                className="flex items-center justify-center gap-2 rounded-lg border border-primary px-6 py-3 text-primary transition-colors duration-300 hover:bg-primary hover:text-white"
+                onClick={() => setNavigationOpen(false)}
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Browse Programs
+              </Link>
+
+              <Link
+                href="/enrollment"
+                className="flex items-center justify-center gap-2 rounded-lg bg-primary px-6 py-3 text-white duration-300 ease-in-out hover:bg-primaryho hover:shadow-lg"
+                onClick={() => setNavigationOpen(false)}
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 2a4 4 0 00-4 4v1H5a1 1 0 00-.994.89l-1 9A1 1 0 004 18h12a1 1 0 00.994-1.11l-1-9A1 1 0 0015 7h-1V6a4 4 0 00-4-4zm2 5V6a2 2 0 10-4 0v1h4zm-6 3a1 1 0 112 0 1 1 0 01-2 0zm7-1a1 1 0 100 2 1 1 0 000-2z" clipRule="evenodd" />
+                </svg>
+                Enroll Now
+              </Link>
+            </div>
           </div>
         </div>
       </div>
